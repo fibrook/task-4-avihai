@@ -79,10 +79,15 @@ export function OperationCard({ operation, index }: OperationCardProps) {
               <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${config.textClass}`} />
             </div>
             <div className="min-w-0">
-              <Badge className={`${config.bgClass} ${config.textClass} border-0 font-semibold mb-1 text-xs sm:text-sm`}>
-                {config.label}
-              </Badge>
-              <div className="flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground mt-1">
+              <div className="flex items-center gap-2 mb-1">
+                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-semibold text-xs sm:text-sm`}>
+                  {config.label}
+                </Badge>
+                <span className="text-xs sm:text-sm font-medium text-foreground truncate">
+                  #{operation.account_number}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
                 <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
                 <span className="truncate">
                   {format(new Date(operation.created_at), "MMM d, yyyy")}
