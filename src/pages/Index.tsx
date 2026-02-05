@@ -71,40 +71,41 @@ const Index = () => {
         {/* Stats */}
         <StatsCards />
 
-        {/* Search Section */}
-        <Card className="shadow-card">
-          <CardContent className="p-4 sm:p-6">
-            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3">
-              <div className="relative flex-1">
+        {/* Search Section - Compact */}
+        <Card className="shadow-card border-border/50">
+          <CardContent className="p-3 sm:p-4">
+            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-center">
+              <div className="relative flex-1 w-full">
                 <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
                   placeholder="Enter account number..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-10 h-11"
+                  className="pl-9 h-9 text-sm"
                 />
               </div>
-              <div className="flex gap-2">
-                <Button type="submit" className="flex-1 sm:flex-none h-11 px-4 sm:px-6 gradient-primary text-primary-foreground">
-                  <Search className="h-4 w-4 mr-2" />
+              <div className="flex gap-2 w-full sm:w-auto">
+                <Button type="submit" size="sm" className="flex-1 sm:flex-none h-9 px-4 gradient-primary text-primary-foreground">
+                  <Search className="h-3.5 w-3.5 mr-1.5" />
                   Search
                 </Button>
                 {activeSearch && (
                   <Button
                     type="button"
                     variant="outline"
-                    className="h-11 px-4"
+                    size="sm"
+                    className="h-9 px-3"
                     onClick={handleClearSearch}
                   >
-                    <X className="h-4 w-4 sm:mr-2" />
+                    <X className="h-3.5 w-3.5 sm:mr-1.5" />
                     <span className="hidden sm:inline">Clear</span>
                   </Button>
                 )}
               </div>
             </form>
             {activeSearch && (
-              <p className="text-sm text-muted-foreground mt-3">
-                Showing results for: <span className="font-semibold text-foreground">{activeSearch}</span>
+              <p className="text-xs text-muted-foreground mt-2">
+                Results for: <span className="font-semibold text-foreground">{activeSearch}</span>
               </p>
             )}
           </CardContent>
@@ -123,20 +124,18 @@ const Index = () => {
           </h2>
 
           {isLoading ? (
-            <div className="grid gap-4 lg:grid-cols-2">
-              {[...Array(4)].map((_, i) => (
+            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+              {[...Array(6)].map((_, i) => (
                 <Card key={i} className="shadow-card">
-                  <CardContent className="p-4 sm:p-5">
-                    <div className="flex items-start justify-between gap-4">
-                      <div className="flex items-center gap-3 sm:gap-4">
-                        <Skeleton className="h-10 w-10 sm:h-12 sm:w-12 rounded-xl" />
-                        <div className="space-y-2">
-                          <Skeleton className="h-5 w-20" />
-                          <Skeleton className="h-4 w-24 sm:w-32" />
-                        </div>
+                  <CardContent className="p-3 sm:p-4">
+                    <div className="flex items-center justify-between gap-3 mb-2">
+                      <div className="flex items-center gap-2.5">
+                        <Skeleton className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg" />
+                        <Skeleton className="h-4 w-24" />
                       </div>
-                      <Skeleton className="h-6 sm:h-8 w-20 sm:w-24" />
+                      <Skeleton className="h-5 w-16" />
                     </div>
+                    <Skeleton className="h-3 w-20" />
                   </CardContent>
                 </Card>
               ))}
@@ -156,7 +155,7 @@ const Index = () => {
               </CardContent>
             </Card>
           ) : (
-            <div className="grid gap-4 lg:grid-cols-2">
+            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
               {operations.map((operation, index) => (
                 <OperationCard key={operation.id} operation={operation} index={index} />
               ))}
