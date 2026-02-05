@@ -68,59 +68,47 @@ export function OperationCard({ operation, index }: OperationCardProps) {
 
   return (
     <Card
-      className={`shadow-card hover:shadow-card-hover transition-all duration-200 border-l-3 ${config.borderClass} animate-fade-in h-full`}
+      className={`shadow-card hover:shadow-card-hover transition-all duration-200 border-l-2 ${config.borderClass} animate-fade-in`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
-      <CardContent className="p-3 sm:p-4 h-full flex flex-col">
-        {/* Header Row */}
-        <div className="flex items-center justify-between gap-3 mb-2">
-          <div className="flex items-center gap-2.5">
-            <div className={`shrink-0 rounded-lg ${config.bgClass} p-2`}>
-              <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${config.textClass}`} />
+      <CardContent className="p-2.5 sm:p-3">
+        {/* Single Row Layout */}
+        <div className="flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 min-w-0">
+            <div className={`shrink-0 rounded-md ${config.bgClass} p-1.5`}>
+              <Icon className={`h-3.5 w-3.5 ${config.textClass}`} />
             </div>
-            <div className="min-w-0">
-              <div className="flex items-center gap-1.5 flex-wrap">
-                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-xs px-2 py-0.5`}>
+            <div className="min-w-0 flex flex-col">
+              <div className="flex items-center gap-1.5">
+                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-[10px] px-1.5 py-0`}>
                   {config.label}
                 </Badge>
-                <span className="text-xs font-medium text-muted-foreground">
+                <span className="text-[10px] text-muted-foreground">
                   #{operation.account_number}
                 </span>
               </div>
+              <span className="text-[10px] text-muted-foreground mt-0.5">
+                {format(new Date(operation.created_at), "MMM d, yyyy")}
+              </span>
             </div>
           </div>
-          <p className="text-base sm:text-lg font-bold tracking-tight tabular-nums shrink-0">
-            {formatCurrency(operation.amount)}
-          </p>
-        </div>
-
-        {/* Date */}
-        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-auto">
-          <Calendar className="h-3 w-3 shrink-0" />
-          <span>{format(new Date(operation.created_at), "MMM d, yyyy")}</span>
-        </div>
-
-        {/* Loan Details */}
-        {operation.operation_type === "loan" && (operation.interest || operation.payments) && (
-          <div className="mt-2 pt-2 border-t border-border/40">
-            <div className="flex gap-4">
-              {operation.interest !== null && (
-                <div className="flex items-center gap-1.5 text-xs">
-                  <Percent className="h-3 w-3 text-loan" />
-                  <span className="text-muted-foreground">Interest:</span>
-                  <span className="font-medium">{operation.interest}%</span>
-                </div>
-              )}
-              {operation.payments !== null && (
-                <div className="flex items-center gap-1.5 text-xs">
-                  <CreditCard className="h-3 w-3 text-loan" />
-                  <span className="text-muted-foreground">Payments:</span>
-                  <span className="font-medium">{operation.payments} mo</span>
-                </div>
-              )}
-            </div>
+          <div className="text-right shrink-0">
+            <p className="text-sm font-bold tracking-tight tabular-nums">
+              {formatCurrency(operation.amount)}
+            </p>
+            {/* Compact Loan Details */}
+            {operation.operation_type === "loan" && (operation.interest || operation.payments) && (
+              <div className="flex items-center gap-2 text-[10px] text-muted-foreground mt-0.5 justify-end">
+                {operation.interest !== null && (
+                  <span>{operation.interest}% APR</span>
+                )}
+                {operation.payments !== null && (
+                  <span>{operation.payments}mo</span>
+                )}
+              </div>
+            )}
           </div>
-        )}
+        </div>
       </CardContent>
     </Card>
   );

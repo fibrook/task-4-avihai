@@ -71,45 +71,40 @@ const Index = () => {
         {/* Stats */}
         <StatsCards />
 
-        {/* Search Section - Compact */}
-        <Card className="shadow-card border-border/50">
-          <CardContent className="p-3 sm:p-4">
-            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-center">
-              <div className="relative flex-1 w-full">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input
-                  placeholder="Enter account number..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="pl-9 h-9 text-sm"
-                />
-              </div>
-              <div className="flex gap-2 w-full sm:w-auto">
-                <Button type="submit" size="sm" className="flex-1 sm:flex-none h-9 px-4 gradient-primary text-primary-foreground">
-                  <Search className="h-3.5 w-3.5 mr-1.5" />
-                  Search
-                </Button>
-                {activeSearch && (
-                  <Button
-                    type="button"
-                    variant="outline"
-                    size="sm"
-                    className="h-9 px-3"
-                    onClick={handleClearSearch}
-                  >
-                    <X className="h-3.5 w-3.5 sm:mr-1.5" />
-                    <span className="hidden sm:inline">Clear</span>
-                  </Button>
-                )}
-              </div>
-            </form>
+        {/* Compact Search Bar */}
+        <div className="flex flex-col sm:flex-row gap-2 items-center">
+          <form onSubmit={handleSearch} className="flex gap-2 w-full">
+            <div className="relative flex-1">
+              <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+              <Input
+                placeholder="Search by account number..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-8 h-8 text-xs"
+              />
+            </div>
+            <Button type="submit" size="sm" className="h-8 px-3 text-xs gradient-primary text-primary-foreground">
+              <Search className="h-3 w-3 mr-1" />
+              Search
+            </Button>
             {activeSearch && (
-              <p className="text-xs text-muted-foreground mt-2">
-                Results for: <span className="font-semibold text-foreground">{activeSearch}</span>
-              </p>
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                className="h-8 px-2"
+                onClick={handleClearSearch}
+              >
+                <X className="h-3 w-3" />
+              </Button>
             )}
-          </CardContent>
-        </Card>
+          </form>
+          {activeSearch && (
+            <p className="text-xs text-muted-foreground">
+              Showing: <span className="font-medium text-foreground">{activeSearch}</span>
+            </p>
+          )}
+        </div>
 
         {/* Results Section */}
         <section>
@@ -124,18 +119,17 @@ const Index = () => {
           </h2>
 
           {isLoading ? (
-            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
               {[...Array(6)].map((_, i) => (
                 <Card key={i} className="shadow-card">
-                  <CardContent className="p-3 sm:p-4">
-                    <div className="flex items-center justify-between gap-3 mb-2">
-                      <div className="flex items-center gap-2.5">
-                        <Skeleton className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg" />
-                        <Skeleton className="h-4 w-24" />
+                  <CardContent className="p-2.5 sm:p-3">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-center gap-2">
+                        <Skeleton className="h-6 w-6 rounded-md" />
+                        <Skeleton className="h-3 w-20" />
                       </div>
-                      <Skeleton className="h-5 w-16" />
+                      <Skeleton className="h-4 w-14" />
                     </div>
-                    <Skeleton className="h-3 w-20" />
                   </CardContent>
                 </Card>
               ))}
@@ -155,7 +149,7 @@ const Index = () => {
               </CardContent>
             </Card>
           ) : (
-            <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
               {operations.map((operation, index) => (
                 <OperationCard key={operation.id} operation={operation} index={index} />
               ))}
