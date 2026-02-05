@@ -2,124 +2,124 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Bank Account Management - Modern Fintech Design System */
+/* Bank Account Management - Prestigious Business Design System */
 
 @layer base {
   :root {
-    --background: 220 20% 97%;
-    --foreground: 222 47% 11%;
+    --background: 40 20% 98%;
+    --foreground: 220 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 220 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 220 25% 10%;
 
-    --primary: 220 70% 45%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 220 60% 25%;
+    --primary-foreground: 45 30% 95%;
 
-    --secondary: 220 15% 92%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 40 15% 92%;
+    --secondary-foreground: 220 25% 10%;
 
-    --muted: 220 15% 95%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 40 10% 95%;
+    --muted-foreground: 220 10% 40%;
 
-    --accent: 160 60% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 70% 50%;
+    --accent-foreground: 220 25% 10%;
 
-    --destructive: 0 72% 51%;
+    --destructive: 0 65% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 15% 90%;
-    --input: 220 15% 90%;
-    --ring: 220 70% 45%;
+    --border: 40 15% 88%;
+    --input: 40 15% 88%;
+    --ring: 220 60% 25%;
 
-    --radius: 0.75rem;
+    --radius: 0.5rem;
 
     /* Custom tokens for banking operations */
-    --deposit: 160 60% 45%;
+    --deposit: 160 45% 35%;
     --deposit-foreground: 0 0% 100%;
-    --deposit-muted: 160 40% 95%;
+    --deposit-muted: 160 25% 94%;
     
-    --withdrawal: 35 90% 55%;
+    --withdrawal: 25 70% 45%;
     --withdrawal-foreground: 0 0% 100%;
-    --withdrawal-muted: 35 60% 95%;
+    --withdrawal-muted: 25 40% 94%;
     
-    --loan: 270 60% 55%;
+    --loan: 220 50% 40%;
     --loan-foreground: 0 0% 100%;
-    --loan-muted: 270 40% 95%;
+    --loan-muted: 220 30% 94%;
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(220 70% 45%), hsl(220 80% 55%));
-    --gradient-hero: linear-gradient(135deg, hsl(220 70% 20%), hsl(220 60% 35%));
-    --gradient-deposit: linear-gradient(135deg, hsl(160 60% 40%), hsl(160 70% 50%));
-    --gradient-withdrawal: linear-gradient(135deg, hsl(35 85% 50%), hsl(35 95% 60%));
-    --gradient-loan: linear-gradient(135deg, hsl(270 55% 50%), hsl(270 65% 60%));
+    /* Gradients - Prestigious navy and gold */
+    --gradient-primary: linear-gradient(135deg, hsl(220 60% 25%), hsl(220 50% 35%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 50% 12%), hsl(220 45% 22%));
+    --gradient-deposit: linear-gradient(135deg, hsl(160 45% 30%), hsl(160 50% 40%));
+    --gradient-withdrawal: linear-gradient(135deg, hsl(25 65% 40%), hsl(25 75% 50%));
+    --gradient-loan: linear-gradient(135deg, hsl(220 45% 35%), hsl(220 55% 45%));
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px 0 hsl(220 20% 10% / 0.05);
-    --shadow-md: 0 4px 6px -1px hsl(220 20% 10% / 0.1), 0 2px 4px -2px hsl(220 20% 10% / 0.1);
-    --shadow-lg: 0 10px 15px -3px hsl(220 20% 10% / 0.1), 0 4px 6px -4px hsl(220 20% 10% / 0.1);
-    --shadow-card: 0 1px 3px hsl(220 20% 10% / 0.08), 0 8px 24px hsl(220 20% 10% / 0.06);
+    /* Shadows - Refined and subtle */
+    --shadow-sm: 0 1px 2px 0 hsl(220 20% 10% / 0.04);
+    --shadow-md: 0 2px 8px -2px hsl(220 20% 10% / 0.08);
+    --shadow-lg: 0 8px 20px -4px hsl(220 20% 10% / 0.1);
+    --shadow-card: 0 1px 3px hsl(220 20% 10% / 0.05), 0 4px 16px hsl(220 20% 10% / 0.04);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 40 15% 98%;
+    --sidebar-foreground: 220 25% 20%;
+    --sidebar-primary: 220 60% 25%;
+    --sidebar-primary-foreground: 45 30% 95%;
+    --sidebar-accent: 40 10% 95%;
+    --sidebar-accent-foreground: 220 25% 10%;
+    --sidebar-border: 40 15% 90%;
+    --sidebar-ring: 220 60% 30%;
   }
 
   .dark {
-    --background: 222 47% 8%;
-    --foreground: 220 15% 95%;
+    --background: 220 30% 6%;
+    --foreground: 40 15% 95%;
 
-    --card: 222 47% 11%;
-    --card-foreground: 220 15% 95%;
+    --card: 220 30% 10%;
+    --card-foreground: 40 15% 95%;
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 220 15% 95%;
+    --popover: 220 30% 10%;
+    --popover-foreground: 40 15% 95%;
 
-    --primary: 220 70% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 45 60% 55%;
+    --primary-foreground: 220 30% 8%;
 
-    --secondary: 220 30% 18%;
-    --secondary-foreground: 220 15% 95%;
+    --secondary: 220 25% 15%;
+    --secondary-foreground: 40 15% 95%;
 
-    --muted: 220 30% 15%;
-    --muted-foreground: 220 15% 65%;
+    --muted: 220 25% 12%;
+    --muted-foreground: 40 10% 60%;
 
-    --accent: 160 60% 50%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 45 70% 55%;
+    --accent-foreground: 220 30% 8%;
 
-    --destructive: 0 62% 40%;
+    --destructive: 0 55% 45%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 30% 18%;
-    --input: 220 30% 18%;
-    --ring: 220 70% 55%;
+    --border: 220 25% 15%;
+    --input: 220 25% 15%;
+    --ring: 45 60% 55%;
 
-    --deposit: 160 60% 50%;
-    --deposit-muted: 160 30% 15%;
+    --deposit: 160 50% 45%;
+    --deposit-muted: 160 25% 12%;
     
-    --withdrawal: 35 90% 55%;
-    --withdrawal-muted: 35 40% 15%;
+    --withdrawal: 25 70% 50%;
+    --withdrawal-muted: 25 35% 12%;
     
-    --loan: 270 60% 60%;
-    --loan-muted: 270 30% 15%;
+    --loan: 220 50% 55%;
+    --loan-muted: 220 25% 12%;
 
-    --gradient-hero: linear-gradient(135deg, hsl(220 70% 15%), hsl(220 60% 25%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 40% 8%), hsl(220 35% 15%));
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 220 30% 8%;
+    --sidebar-foreground: 40 15% 90%;
+    --sidebar-primary: 45 60% 55%;
+    --sidebar-primary-foreground: 220 30% 8%;
+    --sidebar-accent: 220 25% 12%;
+    --sidebar-accent-foreground: 40 15% 95%;
+    --sidebar-border: 220 25% 15%;
+    --sidebar-ring: 45 60% 55%;
   }
 }
 

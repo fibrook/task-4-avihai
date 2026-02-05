@@ -68,66 +68,54 @@ export function OperationCard({ operation, index }: OperationCardProps) {
 
   return (
     <Card
-      className={`shadow-card hover:shadow-card-hover transition-all duration-300 border-l-4 ${config.borderClass} animate-fade-in`}
-      style={{ animationDelay: `${index * 75}ms` }}
+      className={`shadow-card hover:shadow-card-hover transition-all duration-200 border-l-3 ${config.borderClass} animate-fade-in h-full`}
+      style={{ animationDelay: `${index * 50}ms` }}
     >
-      <CardContent className="p-4 sm:p-5">
-        <div className="flex items-start justify-between gap-3 sm:gap-4">
-          {/* Left: Icon and Type */}
-          <div className="flex items-center gap-3 sm:gap-4 min-w-0">
-            <div className={`shrink-0 rounded-lg sm:rounded-xl ${config.bgClass} p-2 sm:p-3`}>
-              <Icon className={`h-5 w-5 sm:h-6 sm:w-6 ${config.textClass}`} />
+      <CardContent className="p-3 sm:p-4 h-full flex flex-col">
+        {/* Header Row */}
+        <div className="flex items-center justify-between gap-3 mb-2">
+          <div className="flex items-center gap-2.5">
+            <div className={`shrink-0 rounded-lg ${config.bgClass} p-2`}>
+              <Icon className={`h-4 w-4 sm:h-5 sm:w-5 ${config.textClass}`} />
             </div>
             <div className="min-w-0">
-              <div className="flex items-center gap-2 mb-1">
-                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-semibold text-xs sm:text-sm`}>
+              <div className="flex items-center gap-1.5 flex-wrap">
+                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-xs px-2 py-0.5`}>
                   {config.label}
                 </Badge>
-                <span className="text-xs sm:text-sm font-medium text-foreground truncate">
+                <span className="text-xs font-medium text-muted-foreground">
                   #{operation.account_number}
                 </span>
               </div>
-              <div className="flex items-center gap-1.5 text-xs sm:text-sm text-muted-foreground">
-                <Calendar className="h-3 w-3 sm:h-3.5 sm:w-3.5 shrink-0" />
-                <span className="truncate">
-                  {format(new Date(operation.created_at), "MMM d, yyyy")}
-                </span>
-              </div>
             </div>
           </div>
+          <p className="text-base sm:text-lg font-bold tracking-tight tabular-nums shrink-0">
+            {formatCurrency(operation.amount)}
+          </p>
+        </div>
 
-          {/* Right: Amount */}
-          <div className="text-right shrink-0">
-            <p className="text-lg sm:text-2xl font-bold tracking-tight tabular-nums">
-              {formatCurrency(operation.amount)}
-            </p>
-          </div>
+        {/* Date */}
+        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-auto">
+          <Calendar className="h-3 w-3 shrink-0" />
+          <span>{format(new Date(operation.created_at), "MMM d, yyyy")}</span>
         </div>
 
         {/* Loan Details */}
         {operation.operation_type === "loan" && (operation.interest || operation.payments) && (
-          <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-border/50">
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+          <div className="mt-2 pt-2 border-t border-border/40">
+            <div className="flex gap-4">
               {operation.interest !== null && (
-                <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <div className="rounded-md sm:rounded-lg bg-loan-muted p-1 sm:p-1.5">
-                    <Percent className="h-3 w-3 sm:h-4 sm:w-4 text-loan" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-muted-foreground text-[10px] sm:text-xs">Interest</p>
-                    <p className="font-semibold truncate">{operation.interest}% APR</p>
-                  </div>
+                <div className="flex items-center gap-1.5 text-xs">
+                  <Percent className="h-3 w-3 text-loan" />
+                  <span className="text-muted-foreground">Interest:</span>
+                  <span className="font-medium">{operation.interest}%</span>
                 </div>
               )}
               {operation.payments !== null && (
-                <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <div className="rounded-md sm:rounded-lg bg-loan-muted p-1 sm:p-1.5">
-                    <CreditCard className="h-3 w-3 sm:h-4 sm:w-4 text-loan" />
-                  </div>
-                  <div className="min-w-0">
-                    <p className="text-muted-foreground text-[10px] sm:text-xs">Payments</p>
-                    <p className="font-semibold truncate">{operation.payments} mo</p>
-                  </div>
+                <div className="flex items-center gap-1.5 text-xs">
+                  <CreditCard className="h-3 w-3 text-loan" />
+                  <span className="text-muted-foreground">Payments:</span>
+                  <span className="font-medium">{operation.payments} mo</span>
                 </div>
               )}
             </div>
