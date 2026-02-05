@@ -1,8 +1,7 @@
-import { OperationsList } from "@/components/OperationsList";
-import { StatsCards } from "@/components/StatsCards";
+import { OperationForm } from "@/components/OperationForm";
 import { Navbar } from "@/components/Navbar";
 
-const Index = () => {
+const Actions = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -10,20 +9,21 @@ const Index = () => {
       {/* Hero Section */}
       <section className="gradient-hero text-primary-foreground">
         <div className="container py-10">
-          <h1 className="text-3xl font-bold tracking-tight mb-2">Account Overview</h1>
+          <h1 className="text-3xl font-bold tracking-tight mb-2">New Operation</h1>
           <p className="text-primary-foreground/80">
-            View your account details and recent transactions
+            Record a deposit, withdrawal, or loan
           </p>
         </div>
       </section>
 
       {/* Main Content */}
-      <main className="container py-8 space-y-8">
-        <StatsCards />
-        <OperationsList />
+      <main className="container py-8">
+        <div className="max-w-lg mx-auto">
+          <OperationForm />
+        </div>
       </main>
     </div>
   );
 };
 
-export default Index;
+export default Actions;
