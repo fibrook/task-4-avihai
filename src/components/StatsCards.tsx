@@ -36,6 +36,12 @@ export function StatsCards() {
   };
 
   const formatCurrency = (amount: number) => {
+    if (amount >= 1000000) {
+      return `$${(amount / 1000000).toFixed(1)}M`;
+    }
+    if (amount >= 1000) {
+      return `$${(amount / 1000).toFixed(1)}K`;
+    }
     return new Intl.NumberFormat("en-US", {
       style: "currency",
       currency: "USD",
@@ -46,12 +52,12 @@ export function StatsCards() {
 
   if (isLoading) {
     return (
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
         {[...Array(4)].map((_, i) => (
           <Card key={i} className="shadow-card">
-            <CardContent className="p-6">
-              <Skeleton className="h-10 w-24 mb-2" />
-              <Skeleton className="h-4 w-20" />
+            <CardContent className="p-4 sm:p-6">
+              <Skeleton className="h-8 sm:h-10 w-16 sm:w-24 mb-2" />
+              <Skeleton className="h-4 w-14 sm:w-20" />
             </CardContent>
           </Card>
         ))}
@@ -60,18 +66,18 @@ export function StatsCards() {
   }
 
   return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div className="grid gap-3 sm:gap-4 grid-cols-2 lg:grid-cols-4">
       <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "0ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-4 p-6">
-            <div className="rounded-xl bg-deposit-muted p-3">
-              <ArrowDownCircle className="h-6 w-6 text-deposit" />
+          <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+            <div className="rounded-lg sm:rounded-xl bg-deposit-muted p-2 sm:p-3">
+              <ArrowDownCircle className="h-5 w-5 sm:h-6 sm:w-6 text-deposit" />
             </div>
-            <div>
-              <p className="text-2xl font-bold tracking-tight">
+            <div className="min-w-0">
+              <p className="text-lg sm:text-2xl font-bold tracking-tight truncate">
                 {formatCurrency(stats.deposits)}
               </p>
-              <p className="text-sm text-muted-foreground">Total Deposits</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Deposits</p>
             </div>
           </div>
           <div className="h-1 gradient-deposit" />
@@ -80,15 +86,15 @@ export function StatsCards() {
 
       <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "50ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-4 p-6">
-            <div className="rounded-xl bg-withdrawal-muted p-3">
-              <ArrowUpCircle className="h-6 w-6 text-withdrawal" />
+          <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+            <div className="rounded-lg sm:rounded-xl bg-withdrawal-muted p-2 sm:p-3">
+              <ArrowUpCircle className="h-5 w-5 sm:h-6 sm:w-6 text-withdrawal" />
             </div>
-            <div>
-              <p className="text-2xl font-bold tracking-tight">
+            <div className="min-w-0">
+              <p className="text-lg sm:text-2xl font-bold tracking-tight truncate">
                 {formatCurrency(stats.withdrawals)}
               </p>
-              <p className="text-sm text-muted-foreground">Total Withdrawals</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Withdrawals</p>
             </div>
           </div>
           <div className="h-1 gradient-withdrawal" />
@@ -97,15 +103,15 @@ export function StatsCards() {
 
       <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "100ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-4 p-6">
-            <div className="rounded-xl bg-loan-muted p-3">
-              <Landmark className="h-6 w-6 text-loan" />
+          <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+            <div className="rounded-lg sm:rounded-xl bg-loan-muted p-2 sm:p-3">
+              <Landmark className="h-5 w-5 sm:h-6 sm:w-6 text-loan" />
             </div>
-            <div>
-              <p className="text-2xl font-bold tracking-tight">
+            <div className="min-w-0">
+              <p className="text-lg sm:text-2xl font-bold tracking-tight truncate">
                 {formatCurrency(stats.loans)}
               </p>
-              <p className="text-sm text-muted-foreground">Total Loans</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Loans</p>
             </div>
           </div>
           <div className="h-1 gradient-loan" />
@@ -114,13 +120,13 @@ export function StatsCards() {
 
       <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "150ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-4 p-6">
-            <div className="rounded-xl bg-secondary p-3">
-              <Wallet className="h-6 w-6 text-primary" />
+          <div className="flex items-center gap-3 sm:gap-4 p-4 sm:p-6">
+            <div className="rounded-lg sm:rounded-xl bg-secondary p-2 sm:p-3">
+              <Wallet className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
             </div>
-            <div>
-              <p className="text-2xl font-bold tracking-tight">{stats.total}</p>
-              <p className="text-sm text-muted-foreground">Total Operations</p>
+            <div className="min-w-0">
+              <p className="text-lg sm:text-2xl font-bold tracking-tight">{stats.total}</p>
+              <p className="text-xs sm:text-sm text-muted-foreground">Operations</p>
             </div>
           </div>
           <div className="h-1 gradient-primary" />
