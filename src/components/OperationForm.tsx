@@ -69,29 +69,18 @@ export function OperationForm() {
     createOperation.mutate(formData);
   };
 
-  const getOperationIcon = (type: OperationType) => {
-    switch (type) {
-      case "deposit":
-        return <ArrowDownCircle className="h-5 w-5 text-deposit" />;
-      case "withdrawal":
-        return <ArrowUpCircle className="h-5 w-5 text-withdrawal" />;
-      case "loan":
-        return <Landmark className="h-5 w-5 text-loan" />;
-    }
-  };
-
   return (
     <Card className="shadow-card animate-fade-in">
-      <CardHeader className="pb-4">
-        <CardTitle className="flex items-center gap-2 text-xl">
+      <CardHeader className="pb-4 px-4 sm:px-6">
+        <CardTitle className="flex items-center gap-2 text-lg sm:text-xl">
           <Plus className="h-5 w-5 text-primary" />
           New Operation
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        <form onSubmit={handleSubmit} className="space-y-5">
+      <CardContent className="px-4 sm:px-6">
+        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
           <div className="space-y-2">
-            <Label htmlFor="account_number">Account Number</Label>
+            <Label htmlFor="account_number" className="text-sm">Account Number</Label>
             <Input
               id="account_number"
               placeholder="Enter account number"
@@ -104,7 +93,7 @@ export function OperationForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="operation_type">Operation Type</Label>
+            <Label htmlFor="operation_type" className="text-sm">Operation Type</Label>
             <Select
               value={formData.operation_type}
               onValueChange={(value: OperationType) =>
@@ -114,7 +103,7 @@ export function OperationForm() {
               <SelectTrigger className="h-11">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-popover">
                 <SelectItem value="deposit">
                   <div className="flex items-center gap-2">
                     <ArrowDownCircle className="h-4 w-4 text-deposit" />
@@ -138,7 +127,7 @@ export function OperationForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="amount">Amount ($)</Label>
+            <Label htmlFor="amount" className="text-sm">Amount ($)</Label>
             <Input
               id="amount"
               type="number"
@@ -154,11 +143,11 @@ export function OperationForm() {
           </div>
 
           {formData.operation_type === "loan" && (
-            <div className="space-y-4 rounded-lg bg-loan-muted p-4 animate-scale-in">
+            <div className="space-y-4 rounded-lg bg-loan-muted p-3 sm:p-4 animate-scale-in">
               <p className="text-sm font-medium text-loan">Loan Details</p>
-              <div className="grid gap-4 sm:grid-cols-2">
+              <div className="grid gap-3 sm:gap-4 grid-cols-1 sm:grid-cols-2">
                 <div className="space-y-2">
-                  <Label htmlFor="interest">Interest Rate (%)</Label>
+                  <Label htmlFor="interest" className="text-sm">Interest Rate (%)</Label>
                   <Input
                     id="interest"
                     type="number"
@@ -173,7 +162,7 @@ export function OperationForm() {
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="payments">Number of Payments</Label>
+                  <Label htmlFor="payments" className="text-sm">Number of Payments</Label>
                   <Input
                     id="payments"
                     type="number"
