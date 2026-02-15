@@ -15,8 +15,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 220 25% 10%;
 
-    --primary: 220 60% 25%;
-    --primary-foreground: 45 30% 95%;
+    --primary: 220 70% 22%;
+    --primary-foreground: 45 40% 96%;
 
     --secondary: 40 15% 92%;
     --secondary-foreground: 220 25% 10%;
@@ -24,8 +24,8 @@
     --muted: 40 10% 95%;
     --muted-foreground: 220 10% 40%;
 
-    --accent: 45 70% 50%;
-    --accent-foreground: 220 25% 10%;
+    --accent: 42 85% 48%;
+    --accent-foreground: 220 30% 8%;
 
     --destructive: 0 65% 45%;
     --destructive-foreground: 0 0% 100%;
@@ -37,17 +37,17 @@
     --radius: 0.5rem;
 
     /* Custom tokens for banking operations */
-    --deposit: 160 45% 35%;
+    --deposit: 155 60% 32%;
     --deposit-foreground: 0 0% 100%;
-    --deposit-muted: 160 25% 94%;
+    --deposit-muted: 155 40% 90%;
     
-    --withdrawal: 25 70% 45%;
+    --withdrawal: 20 80% 48%;
     --withdrawal-foreground: 0 0% 100%;
-    --withdrawal-muted: 25 40% 94%;
+    --withdrawal-muted: 20 50% 92%;
     
-    --loan: 220 50% 40%;
+    --loan: 220 65% 38%;
     --loan-foreground: 0 0% 100%;
-    --loan-muted: 220 30% 94%;
+    --loan-muted: 220 40% 92%;
 
     /* Gradients - Prestigious navy and gold */
     --gradient-primary: linear-gradient(135deg, hsl(220 60% 25%), hsl(220 50% 35%));
