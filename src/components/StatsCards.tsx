@@ -75,7 +75,7 @@ export function StatsCards() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold tracking-tight truncate">{formatCurrency(stats.deposits)}</p>
-              <p className="text-[10px] text-muted-foreground">Deposits</p>
+              <p className="text-xs text-muted-foreground">Deposits</p>
             </div>
           </div>
           <div className="h-0.5 gradient-deposit" />
@@ -90,7 +90,7 @@ export function StatsCards() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold tracking-tight truncate">{formatCurrency(stats.withdrawals)}</p>
-              <p className="text-[10px] text-muted-foreground">Withdrawals</p>
+              <p className="text-xs text-muted-foreground">Withdrawals</p>
             </div>
           </div>
           <div className="h-0.5 gradient-withdrawal" />
@@ -105,7 +105,7 @@ export function StatsCards() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold tracking-tight truncate">{formatCurrency(stats.loans)}</p>
-              <p className="text-[10px] text-muted-foreground">Loans</p>
+              <p className="text-xs text-muted-foreground">Loans</p>
             </div>
           </div>
           <div className="h-0.5 gradient-loan" />
@@ -120,7 +120,7 @@ export function StatsCards() {
             </div>
             <div className="min-w-0">
               <p className="text-sm font-bold tracking-tight">{stats.total}</p>
-              <p className="text-[10px] text-muted-foreground">Operations</p>
+              <p className="text-xs text-muted-foreground">Operations</p>
             </div>
           </div>
           <div className="h-0.5 gradient-primary" />

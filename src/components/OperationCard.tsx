@@ -79,24 +79,24 @@ export function OperationCard({ operation, index }: OperationCardProps) {
             </div>
             <div className="min-w-0">
               <div className="flex items-center gap-1">
-                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-[9px] leading-none px-1 py-0`}>
+                <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-xs px-1.5 py-0.5`}>
                   {config.label}
                 </Badge>
-                <span className="text-[9px] text-muted-foreground">
+                <span className="text-xs text-muted-foreground">
                   #{operation.account_number}
                 </span>
               </div>
-              <span className="text-[9px] text-muted-foreground">
+              <span className="text-xs text-muted-foreground">
                 {format(new Date(operation.created_at), "MMM d, yyyy")}
               </span>
             </div>
           </div>
           <div className="text-right shrink-0">
-            <p className="text-xs font-bold tracking-tight tabular-nums">
+            <p className="text-sm font-bold tracking-tight tabular-nums">
               {formatCurrency(operation.amount)}
             </p>
             {operation.operation_type === "loan" && (operation.interest || operation.payments) && (
-              <div className="flex items-center gap-1.5 text-[9px] text-muted-foreground justify-end">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground justify-end">
                 {operation.interest !== null && <span>{operation.interest}%</span>}
                 {operation.payments !== null && <span>{operation.payments}mo</span>}
               </div>
