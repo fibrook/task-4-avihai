@@ -67,13 +67,13 @@ const Index = () => {
       </section>
 
       {/* Main Content */}
-      <main className="container py-6 sm:py-8 space-y-6 sm:space-y-8">
+      <main className="container py-4 sm:py-6 space-y-4">
         {/* Stats */}
         <StatsCards />
 
         {/* Compact Search Bar */}
         <div className="flex flex-col sm:flex-row gap-2 items-center">
-          <form onSubmit={handleSearch} className="flex gap-2 w-full">
+          <form onSubmit={handleSearch} className="flex gap-1.5 w-full max-w-md">
             <div className="relative flex-1">
               <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
               <Input
@@ -108,8 +108,8 @@ const Index = () => {
 
         {/* Results Section */}
         <section>
-          <h2 className="text-lg sm:text-xl font-semibold mb-4 flex items-center gap-2">
-            <FileSearch className="h-5 w-5 text-primary" />
+          <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">
+            <FileSearch className="h-4 w-4 text-primary" />
             {activeSearch ? "Search Results" : "All Operations"}
             {operations && operations.length > 0 && (
               <span className="text-sm font-normal text-muted-foreground">
