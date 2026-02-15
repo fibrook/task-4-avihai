@@ -119,8 +119,8 @@ const Index = () => {
           </h2>
 
           {isLoading ? (
-            <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
-              {[...Array(6)].map((_, i) => (
+            <div className="grid gap-1.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {[...Array(8)].map((_, i) => (
                 <Card key={i} className="shadow-card">
                   <CardContent className="p-2.5 sm:p-3">
                     <div className="flex items-center justify-between gap-2">
@@ -149,7 +149,7 @@ const Index = () => {
               </CardContent>
             </Card>
           ) : (
-            <div className="grid gap-2 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid gap-1.5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {operations.map((operation, index) => (
                 <OperationCard key={operation.id} operation={operation} index={index} />
               ))}
