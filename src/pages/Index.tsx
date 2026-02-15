@@ -58,9 +58,9 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="gradient-hero text-primary-foreground">
-        <div className="container py-6 sm:py-10">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 sm:mb-2">Account Overview</h1>
-          <p className="text-primary-foreground/80 text-sm sm:text-base">
+        <div className="container py-4 sm:py-6">
+          <h1 className="text-xl sm:text-2xl font-bold tracking-tight mb-0.5">Account Overview</h1>
+          <p className="text-primary-foreground/80 text-xs sm:text-sm">
             Search and view your account operations
           </p>
         </div>

@@ -14,7 +14,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-card/80 backdrop-blur-xl">
-      <div className="container flex h-14 sm:h-16 items-center justify-between">
+      <div className="container flex h-12 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
           <div className="rounded-lg gradient-primary p-1.5 sm:p-2">
@@ -38,7 +38,7 @@ export function Navbar() {
                 )
               }
             >
-              <item.icon className="h-4 w-4" />
+              <item.icon className="h-3.5 w-3.5" />
               <span>{item.label}</span>
             </NavLink>
           ))}
