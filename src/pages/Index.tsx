@@ -4,7 +4,6 @@ import { supabase } from "@/integrations/supabase/client";
 import { Navbar } from "@/components/Navbar";
 import { StatsCards } from "@/components/StatsCards";
 import { OperationCard } from "@/components/OperationCard";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
@@ -22,18 +21,17 @@ interface Operation {
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [activeSearch, setActiveSearch] = useState("");
 
   const { data: operations, isLoading } = useQuery({
-    queryKey: ["operations", activeSearch],
+    queryKey: ["operations", searchQuery],
     queryFn: async () => {
       let query = supabase
         .from("account_operations")
         .select("*")
         .order("created_at", { ascending: false });
 
-      if (activeSearch.trim()) {
-        query = query.eq("account_number", activeSearch.trim());
+      if (searchQuery.trim()) {
+        query = query.ilike("account_number", `%${searchQuery.trim()}%`);
       }
 
       const { data, error } = await query;
@@ -41,16 +39,6 @@ const Index = () => {
       return data as Operation[];
     },
   });
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    setActiveSearch(searchQuery);
-  };
-
-  const handleClearSearch = () => {
-    setSearchQuery("");
-    setActiveSearch("");
-  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -78,35 +66,26 @@ const Index = () => {
 
         {/* Compact Search Bar */}
         <div className="flex flex-col sm:flex-row gap-2 items-center">
-          <form onSubmit={handleSearch} className="flex gap-1.5 w-full max-w-md">
-            <div className="relative flex-1">
-              <Search className="absolute left-2 top-1/2 -translate-y-1/2 h-3 w-3 text-muted-foreground" />
-              <Input
-                placeholder="Search by account number..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-7 h-7 text-xs"
-              />
-            </div>
-            <Button type="submit" size="sm" className="h-7 px-2.5 text-xs gradient-primary text-primary-foreground">
-              <Search className="h-3 w-3 mr-1" />
-              Search
-            </Button>
-            {activeSearch && (
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                className="h-7 px-2"
-                onClick={handleClearSearch}
+          <div className="relative w-full max-w-md">
+            <Search className="absolute left-2.5 top-1/2 -translate-y-1/2 h-3.5 w-3.5 text-muted-foreground" />
+            <Input
+              placeholder="Search by account number..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-8 pr-8 h-8 text-sm"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
               >
-                <X className="h-3 w-3" />
-              </Button>
+                <X className="h-3.5 w-3.5" />
+              </button>
             )}
-          </form>
-          {activeSearch && (
+          </div>
+          {searchQuery && (
             <p className="text-xs text-muted-foreground">
-              Showing: <span className="font-medium text-foreground">{activeSearch}</span>
+              Filtering: <span className="font-medium text-foreground">{searchQuery}</span>
             </p>
           )}
         </div>
@@ -115,7 +94,7 @@ const Index = () => {
         <section>
           <h2 className="text-sm font-semibold mb-3 flex items-center gap-1.5">
             <FileSearch className="h-4 w-4 text-primary" />
-            {activeSearch ? "Search Results" : "All Operations"}
+            {searchQuery ? "Search Results" : "All Operations"}
             {operations && operations.length > 0 && (
               <span className="text-sm font-normal text-muted-foreground">
                 ({operations.length})
@@ -147,8 +126,8 @@ const Index = () => {
                 </div>
                 <h3 className="text-lg sm:text-xl font-semibold mb-2">No operations found</h3>
                 <p className="text-sm sm:text-base text-muted-foreground max-w-sm">
-                  {activeSearch
-                    ? `No operations found for account "${activeSearch}". Try a different account number.`
+                  {searchQuery
+                    ? `No operations found for "${searchQuery}". Try a different account number.`
                     : "There are no operations recorded yet. Go to Actions to add your first operation."}
                 </p>
               </CardContent>
