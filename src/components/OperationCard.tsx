@@ -68,7 +68,7 @@ export function OperationCard({ operation, index }: OperationCardProps) {
 
   return (
     <Card
-      className={`shadow-card hover:shadow-card-hover transition-all duration-200 border-l-2 ${config.borderClass} animate-fade-in`}
+      className={`shadow-card hover:shadow-card-hover transition-all duration-300 border-l-2 ${config.borderClass} animate-fade-in card-shine group`}
       style={{ animationDelay: `${index * 50}ms` }}
     >
       <CardContent className="p-2">

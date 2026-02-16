@@ -17,10 +17,13 @@ export function Navbar() {
       <div className="container flex h-12 items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2 sm:gap-3">
-          <div className="rounded-lg gradient-primary p-1.5 sm:p-2">
+          <div className="rounded-lg gradient-primary p-1.5 sm:p-2 premium-border">
             <Landmark className="h-4 w-4 sm:h-5 sm:w-5 text-primary-foreground" />
           </div>
-          <span className="text-base sm:text-lg font-semibold tracking-tight">BankFlow</span>
+          <div className="flex flex-col leading-none">
+            <span className="text-base sm:text-lg font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>BankFlow</span>
+            <span className="text-[9px] uppercase tracking-[0.2em] text-accent font-medium">Private Banking</span>
+          </div>
         </div>
 
         {/* Desktop Navigation */}
