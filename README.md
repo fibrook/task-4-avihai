@@ -1,73 +1,23 @@
-# Welcome to your Lovable project
+# Bank Operations Dashboard
 
-## Project info
+## Project Summary
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+A financial operations dashboard built with React, TypeScript, Vite, Tailwind CSS, and shadcn-ui, connected to a cloud database for storing and displaying account operations (deposits, withdrawals, loans).
 
-## How can I edit this code?
+## Chat Prompts Log
 
-There are several ways of editing your application.
+Below is a summary of all prompts given during the development process:
 
-**Use Lovable**
+1. **"rollback"** – Requested to restore the project to a previous version using the history view.
+2. **"i meant to add text 'bank account'"** – Clarified that the intent was to add a "Bank Account" label next to the account number on each operation card.
+3. **"make it 'account number' and unbold it"** – Requested changing the label from "Bank Account" to "Account Number:" and removing the bold styling to make it more subtle.
+4. **"Summarize all the prompts I've given you so far in this chat and write them into the README.md file so I can show my lecturer."** – Requested this summary document.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Technologies Used
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **Vite** – Build tool
+- **TypeScript** – Type safety
+- **React** – UI framework
+- **shadcn-ui** – Component library
+- **Tailwind CSS** – Styling
+- **Lovable Cloud** – Backend database and hosting
