@@ -82,8 +82,8 @@ export function OperationCard({ operation, index }: OperationCardProps) {
                 <Badge className={`${config.bgClass} ${config.textClass} border-0 font-medium text-sm px-2 py-0.5`}>
                   {config.label}
                 </Badge>
-                <span className="text-sm font-semibold text-foreground tracking-wide">
-                  Bank Account #{operation.account_number}
+                <span className="text-sm text-muted-foreground">
+                  Account Number: {operation.account_number}
                 </span>
               </div>
               <span className="text-sm text-muted-foreground">
