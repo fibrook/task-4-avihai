@@ -83,7 +83,7 @@ export function OperationCard({ operation, index }: OperationCardProps) {
                   {config.label}
                 </Badge>
                 <span className="text-sm font-semibold text-foreground tracking-wide">
-                  #{operation.account_number}
+                  Bank Account #{operation.account_number}
                 </span>
               </div>
               <span className="text-sm text-muted-foreground">
