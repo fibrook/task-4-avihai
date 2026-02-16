@@ -87,7 +87,7 @@ export function OperationCard({ operation, index }: OperationCardProps) {
                 </span>
               </div>
               <span className="text-sm text-muted-foreground">
-                {format(new Date(operation.created_at), "MMM d, yyyy")}
+                {format(new Date(operation.created_at), "MMM d, yyyy · h:mm a")}
               </span>
             </div>
           </div>
