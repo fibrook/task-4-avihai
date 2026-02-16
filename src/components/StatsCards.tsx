@@ -67,60 +67,60 @@ export function StatsCards() {
 
   return (
     <div className="grid gap-2 grid-cols-2 lg:grid-cols-4">
-      <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "0ms" }}>
+      <Card className="shadow-card overflow-hidden animate-fade-in card-shine group hover:shadow-card-hover transition-shadow duration-300" style={{ animationDelay: "0ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-2 p-2.5">
-            <div className="rounded-md bg-deposit-muted p-1.5">
-              <ArrowDownCircle className="h-3.5 w-3.5 text-deposit" />
+          <div className="flex items-center gap-2.5 p-3">
+            <div className="rounded-lg bg-deposit-muted p-2 ring-1 ring-deposit/10">
+              <ArrowDownCircle className="h-4 w-4 text-deposit" />
             </div>
             <div className="min-w-0">
-              <p className="text-base font-bold tracking-tight truncate">{formatCurrency(stats.deposits)}</p>
-              <p className="text-sm text-muted-foreground">Deposits</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Deposits</p>
+              <p className="text-lg font-bold tracking-tight truncate">{formatCurrency(stats.deposits)}</p>
             </div>
           </div>
           <div className="h-0.5 gradient-deposit" />
         </CardContent>
       </Card>
 
-      <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "50ms" }}>
+      <Card className="shadow-card overflow-hidden animate-fade-in card-shine group hover:shadow-card-hover transition-shadow duration-300" style={{ animationDelay: "50ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-2 p-2.5">
-            <div className="rounded-md bg-withdrawal-muted p-1.5">
-              <ArrowUpCircle className="h-3.5 w-3.5 text-withdrawal" />
+          <div className="flex items-center gap-2.5 p-3">
+            <div className="rounded-lg bg-withdrawal-muted p-2 ring-1 ring-withdrawal/10">
+              <ArrowUpCircle className="h-4 w-4 text-withdrawal" />
             </div>
             <div className="min-w-0">
-              <p className="text-base font-bold tracking-tight truncate">{formatCurrency(stats.withdrawals)}</p>
-              <p className="text-sm text-muted-foreground">Withdrawals</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Withdrawals</p>
+              <p className="text-lg font-bold tracking-tight truncate">{formatCurrency(stats.withdrawals)}</p>
             </div>
           </div>
           <div className="h-0.5 gradient-withdrawal" />
         </CardContent>
       </Card>
 
-      <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "100ms" }}>
+      <Card className="shadow-card overflow-hidden animate-fade-in card-shine group hover:shadow-card-hover transition-shadow duration-300" style={{ animationDelay: "100ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-2 p-2.5">
-            <div className="rounded-md bg-loan-muted p-1.5">
-              <Landmark className="h-3.5 w-3.5 text-loan" />
+          <div className="flex items-center gap-2.5 p-3">
+            <div className="rounded-lg bg-loan-muted p-2 ring-1 ring-loan/10">
+              <Landmark className="h-4 w-4 text-loan" />
             </div>
             <div className="min-w-0">
-              <p className="text-base font-bold tracking-tight truncate">{formatCurrency(stats.loans)}</p>
-              <p className="text-sm text-muted-foreground">Loans</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Loans</p>
+              <p className="text-lg font-bold tracking-tight truncate">{formatCurrency(stats.loans)}</p>
             </div>
           </div>
           <div className="h-0.5 gradient-loan" />
         </CardContent>
       </Card>
 
-      <Card className="shadow-card overflow-hidden animate-fade-in" style={{ animationDelay: "150ms" }}>
+      <Card className="shadow-card overflow-hidden animate-fade-in card-shine group hover:shadow-card-hover transition-shadow duration-300" style={{ animationDelay: "150ms" }}>
         <CardContent className="p-0">
-          <div className="flex items-center gap-2 p-2.5">
-            <div className="rounded-md bg-secondary p-1.5">
-              <Wallet className="h-3.5 w-3.5 text-primary" />
+          <div className="flex items-center gap-2.5 p-3">
+            <div className="rounded-lg bg-secondary p-2 ring-1 ring-primary/10">
+              <Wallet className="h-4 w-4 text-primary" />
             </div>
             <div className="min-w-0">
-              <p className="text-base font-bold tracking-tight">{stats.total}</p>
-              <p className="text-sm text-muted-foreground">Operations</p>
+              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-0.5">Operations</p>
+              <p className="text-lg font-bold tracking-tight">{stats.total}</p>
             </div>
           </div>
           <div className="h-0.5 gradient-primary" />
